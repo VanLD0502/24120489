@@ -1,29 +1,32 @@
 #include <iostream>
 
 using namespace std;
-const int n = 9;
-int board[n][n];
-int solutions = 0;
+const int n = 8; // N-Queens size
+int board[n][n]; // 8x8 Chessboard
+int solutions = 0; // Count valid solutions
+
+// Function to check if a queen can be placed at board[row][col]
 bool isSafe(int row, int col) {
     for (int i = 0; i < row; i ++) {
-        if (board[i][col] == 1) return false;
-        else if (col - (row - i) >= 0 && board[i][col - (row - i)] == 1) return false;
-        else if (col + (row - i) <  n&&  board[i][col + (row - i)] == 1) {
-            return false;
-        }
+        if (board[i][col] == 1) return false; // Check column
+        else if (col - (row - i) >= 0 && board[i][col - (row - i)] == 1) 
+            return false;// Check left diagonal
+        else if (col + (row - i) <  n &&  board[i][col + (row - i)] == 1) 
+            return false; // Check right diagonal
     }
     return true;
 }
 void queens(int row) {
     if (row == n) {
+        // All queens placed successfully
         solutions ++;
         return;
     }
     for (int col = 0; col < n; col ++) {
         if (isSafe(row, col)) {
-            board[row][col] = 1;
-            queens(row + 1);
-            board[row][col] = 0;
+            board[row][col] = 1; ; // Place queen
+            queens(row + 1); // Recur for next row
+            board[row][col] = 0; // Backtrack
         }
     }
 }
@@ -38,9 +41,12 @@ void queens2(int row) {
         return;
     }
     for (int col = 0; col < n; col ++) {
+        ////check if a queen can be placed at row (row), column (col)
         if (!c[col] && !ld[row - col + n] && !rd[row + col]) {
-            c[col] = ld[row - col + n] = rd[row + col] = 1;
+            c[col] = ld[row - col + n] = rd[row + col] = 1;//Mark
+            // Recur for next row
             queens2(row + 1);
+            //BackTrack
             c[col] = ld[row - col + n] = rd[row + col] = 0;
         }
     }
