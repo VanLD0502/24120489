@@ -19,6 +19,13 @@ int main() {
     for (int i = 0; i < n; i ++) {
         cin >> a[i];
     }
-    cout << isSorted(a, n);
+
+    if (isSorted(a, n))
+        cout << "The array is sorted.\n";
+    else {
+        cout << "The array is NOT sorted.\n";
+    }
+    return 0;
+
     return 0;
 }
