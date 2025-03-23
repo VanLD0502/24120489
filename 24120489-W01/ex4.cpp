@@ -5,9 +5,6 @@ using namespace std;
 
 typedef long long ll;
 
-#include <iostream>
-using namespace std;
-
 // Recursive function to solve Tower of Hanoi
 void towerOfHanoi(int n, char from, char to, char aux) {
     //Base Case
