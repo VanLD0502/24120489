@@ -2,16 +2,16 @@
 
 using namespace std;
 int a[1906];
-int find(int a[], int n, int k) {
+int linearSearch(int a[], int n, int k) {
     for (int i = 0; i < n; i ++) {
-        if (a[i] == k) return i;
+        if (a[i] == k) return i; // Return the index directly
     }
-    return -1;
+    return -1; // Return -1 if not found
 }
 int main() {
     int n; cin >> n;
     for (int i = 0; i < n; i ++) cin >> a[i];
     int k; cin >> k;
-    cout << find(a, n, k);
+    cout << linearSearch(a, n, k);
     return 0;
 }

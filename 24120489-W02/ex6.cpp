@@ -8,7 +8,7 @@ bool find(int a[], int n, int target)
 {
     int l = 0;
     int r = n - 1;
-    while (l <= r)
+    while (l < r)
     {
         if (a[l] + a[r] == target)
         {

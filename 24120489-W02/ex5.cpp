@@ -17,8 +17,28 @@ bool check(int len, int n, int target)
 
     return false;
 }
-int main()
-{
+
+int twoPointer() {
+    int n; cin >> n; 
+    for (int i = 0; i < n; i ++) cin >> a[i];
+    int target; cin >> target;
+    int l = 0;
+    int sum = 0;
+    int res = 1e9;
+    for (int r = 0; r < n; r ++) {
+        sum += a[r];
+        while (sum >= target && l <= r) {
+            res = min(res, r - l + 1);
+            sum -= a[l];
+            l ++;
+        }
+    }
+    if (res == 1e9) return 0;
+    return res;
+}
+
+int BinarySearchOnAnswer() {
+    //BinarySearchByAnswer
     int n;
     cin >> n;
     for (int i = 1; i <= n; i++)
@@ -31,7 +51,6 @@ int main()
     int l = 0;
     int r = n;
     int res = 0;
-    // cout << "HELLO";
     while (l <= r)
     {
         int mid = (l + r) / 2;
@@ -43,6 +62,11 @@ int main()
         else
             l = mid + 1;
     }
-    cout << res;
+    return res;
+}
+int main()
+{
+    cout << twoPointer();
+    
     return 0;
 }
