@@ -6,19 +6,23 @@ int pre[1001];
 
 bool find(int a[], int n, int target)
 {
-    int l = 0;
-    int r = n - 1;
+    int l = 0;// left pointer
+    int r = n - 1; // right pointer
     while (l < r)
     {
+        //Obviously returns True
         if (a[l] + a[r] == target)
         {
             return true;
         }
+        //reduce r, to reduce a[l] + a[r] to can be equal to target
         else if (a[l] + a[r] > target)
             r--;
+        //increare l, to increase a[l] + a[r] to can be equal to target
         else
             l++;
     }
+    //dont find sum = target
     return false;
 }
 
