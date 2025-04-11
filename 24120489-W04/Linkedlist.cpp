@@ -65,11 +65,8 @@ bool areListsEqual(List *list1, List *list2)
 }
 
 // function to free the memory of a list
-void freeList(List *L)
+void freeList(List * &L)
 {
-    //Đã chỉnh sửasửa
-    if (L != nullptr) return;
-    //Lỗi là do ở dây nếu L = nullptr, thì sẽ không truy cập vào L->phead đc
     NODE *current = L->p_head;
     while (current)
     {
@@ -366,22 +363,42 @@ int countElements(List *L)
 
 List *reverseList(List *L)
 {
-    if (L->p_head == nullptr && L->p_tail == nullptr) {
-        return L;
-    }
-    Node* par = nullptr;
+    // if (!L) return nullptr;
+    // if (L->p_head == nullptr) {
+    //     return L;
+    // }
+    // Node* par = nullptr;
+    // Node* cur = L->p_head;
+    // //Node* tmp = L->p_head;
+    // while (cur) {
+    //     Node* next = cur->p_next;
+    //     cur->p_next = par;
+    //     par = cur;
+    //     cur = next;
+    // }
+    // swap(L->p_head, L->p_tail);
+    // return L;
+
+    if (!L) return nullptr;
+
+    List* newList = new List();
+    newList->p_head = newList->p_tail = nullptr;
+
     Node* cur = L->p_head;
-    //Node* tmp = L->p_head;
     while (cur) {
-        Node* next = cur->p_next;
-        //if (next == nullptr) L->p_head = cur;
-        cur->p_next = par;
-        par = cur;
-        cur = next;
+        Node* newNode = createNode(cur->key);
+
+        if (newList->p_head == nullptr) {
+            newList->p_head = newList->p_tail = newNode;
+        } else {
+            newNode->p_next = newList->p_head;
+            newList->p_head = newNode;
+        }
+
+        cur = cur->p_next;
     }
-    //swap(cur, tmp);
-    swap(L->p_head, L->p_tail);
-    return L;
+
+    return newList;
 }
 
 void removeDuplicate(List *&L)
@@ -430,7 +447,6 @@ bool removeElement(List *&L, int key)
             p = p->p_next;
     }
 
-    
     return true;
 }
 
@@ -735,6 +751,7 @@ int main()
     assert(areListsEqual(reversedList16_3, expectedList16_3));
     // Test case 4
     List *emptyList16 = new List();
+    emptyList16->p_head = emptyList16->p_tail = nullptr;
     List *reversedList16_4 = reverseList(emptyList16);
     assert(reversedList16_4->p_head == nullptr && reversedList16_4->p_tail == nullptr);
     // free memory

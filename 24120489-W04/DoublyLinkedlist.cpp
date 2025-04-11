@@ -65,7 +65,7 @@ bool areListsEqual(d_List *list1, d_List *list2)
 // function to free the memory of a list
 void freeList(d_List *L)
 {
-    if (L != nullptr) return;
+    if (L == nullptr) return;
     d_NODE *current = L->pHead;
     while (current)
     {
@@ -175,7 +175,6 @@ void removeTail(d_List * &L)
     pre->pNext = nullptr;
     delete L->pTail;
     L->pTail = pre;
-    d_NODE* p = L->pHead;
     return;
 }
 
@@ -399,20 +398,42 @@ int countElements(d_List *L)
 
 d_List *reverseList(d_List *L)
 {
-    if (L->pHead == nullptr) {
-        return L;
-    }
+    // if (L->pHead == nullptr) {
+    //     return L;
+    // }
 
-    d_NODE* p = L->pHead;
-    while (p) {
-        swap(p->pNext, p->pPrev);
-        p = p->pPrev;
-    }
-    swap(L->pHead, L->pTail);
+    // d_NODE* p = L->pHead;
+    // while (p) {
+    //     swap(p->pNext, p->pPrev);
+    //     p = p->pPrev;
+    // }
+    // swap(L->pHead, L->pTail);
     
-    p = L->pHead;
+    // p = L->pHead;
 
-    return L;
+    // return L;
+
+    if (!L) return nullptr;
+
+    d_List* newList = new d_List();
+    newList->pHead = newList->pTail = nullptr;
+
+    d_NODE* cur = L->pHead;
+    while (cur) {
+        d_NODE* newNode = createNode(cur->key);
+
+        if (newList->pHead == nullptr) {
+            newList->pHead = newList->pTail = newNode;
+        } else {
+            newNode->pNext = newList->pHead;
+            newList->pHead->pPrev = newNode;
+            newList->pHead = newNode;
+        }
+
+        cur = cur->pNext;
+    }
+
+    return newList;
 }
 
 void removeDuplicate(d_List *&L)
