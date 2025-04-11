@@ -63,7 +63,7 @@ bool areListsEqual(d_List *list1, d_List *list2)
 }
 
 // function to free the memory of a list
-void freeList(d_List *L)
+void freeList(d_List * &L)
 {
     if (L == nullptr) return;
     d_NODE *current = L->pHead;
