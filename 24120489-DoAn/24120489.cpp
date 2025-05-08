@@ -304,8 +304,8 @@ void Processing(std::string expression, ofstream & out);
 
 void Input(string fileIn, string fileOut)
 {
-    ifstream in("tests.txt");
-    ofstream out("output_24120489.txt");
+    ifstream in(fileIn);
+    ofstream out(fileOut);
     int t;
     string s;
     while (getline(in, s))
