@@ -1,0 +1,39 @@
+# Ignore file thực thi
+*.exe
+*.dll
+*.out
+*.app
+
+# Ignore file biên dịch trung gian
+*.o
+*.obj
+*.pdb
+*.idb
+*.mod
+
+# Ignore thư mục build (quan trọng)
+build/
+Build/
+bin/
+Bin/
+Debug/
+Release/
+
+# Ignore VSCode
+.vscode/
+
+# Ignore Visual Studio
+*.VC.db
+*.VC.opendb
+/.vs/
+
+# Ignore Qt (nếu bạn dùng Qt Creator)
+*.pro.user
+*.qmake.stash
+*.qmlc
+*.jsc
+CMakeLists.txt.user
+
+# Ignore backup
+*.bak
+*.tmp

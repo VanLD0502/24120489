@@ -1,0 +1,3 @@
+Cat 01>Product 001,15,123.5/Product 002,5,400
+Cat 02>Product 003,10,250.75/Product 004,8,300/Product 005,20,150.25
+Cat 03>Product 006,2,25.75/Product 007,4,200/Product 008,6,80.5
