@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Ngay
@@ -192,11 +193,27 @@ int main()
          << n2 << endl
          << n3 << endl
          << n4 << endl;
-    cout << n5 << endl
-         << n6 << endl
-         << n7 << endl
-         << n8 << endl;
-    cout << n9 << endl
-         << n10 << endl;
+    // cout << n5 << endl
+    //      << n6 << endl
+    //      << n7 << endl
+    //      << n8 << endl;
+    // cout << n9 << endl
+    //      << n10 << endl;
+
+    ifstream fin("input.txt");
+
+    if (!fin.is_open())
+    {
+        cout << "OK";
+    }
+
+    int a, b, c;
+    char d, f;
+    char line[100];
+    while (fin >> a >> d >> b >> f >> c)
+    {
+        // cout << a << " " << b << " " << c << endl;
+        cout << Ngay(a, b, c) << endl;
+    }
     return 0;
 }

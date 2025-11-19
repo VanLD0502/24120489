@@ -1,6 +1,7 @@
 #include <iostream>
 #include "SLList.h"
 #include <cstring>
+#include <fstream>
 using namespace std;
 class SoNguyenLon
 {
@@ -302,20 +303,78 @@ ostream &operator<<(ostream &os, const SoNguyenLon &other)
 
 int main()
 {
-    const int iTest = 78912;
-    SoNguyenLon snl1(123);
-    SoNguyenLon snl2(40000);
+    // const int iTest = 78912;
+    // SoNguyenLon snl1(123);
+    // SoNguyenLon snl2(40000);
 
-    cout << snl1 << " + " << snl2 << " = ";
-    cout << (snl1 + snl2) << endl;
-    cout << snl1 << " * " << snl2 << " = ";
-    cout << snl1 * snl2 << endl;
-    cout << snl1 << " - " << snl2 << " = ";
-    cout << snl1 - snl2 << endl;
-    cout << snl2 << " - " << snl1 << " = ";
-    cout << snl2 - snl1 << endl;
-    cout << iTest << " - " << snl2 << " = ";
-    cout << iTest - snl2 << endl;
+    // cout << snl1 << " + " << snl2 << " = ";
+    // cout << (snl1 + snl2) << endl;
+    // cout << snl1 << " * " << snl2 << " = ";
+    // cout << snl1 * snl2 << endl;
+    // cout << snl1 << " - " << snl2 << " = ";
+    // cout << snl1 - snl2 << endl;
+    // cout << snl2 << " - " << snl1 << " = ";
+    // cout << snl2 - snl1 << endl;
+    // cout << iTest << " - " << snl2 << " = ";
+    // cout << iTest - snl2 << endl;
+
+    // ifstream fin("input.txt");
+
+    // char line[1000];
+    // char left[500], right[500];
+    // char oper;
+
+    // while (fin.getline(line, 1000))
+    // {
+    //     int i;
+    //     for (i = 0; i < strlen(line); i++)
+    //     {
+    //         if (line[i] < '0' || line[i] > '9')
+    //         {
+    //             oper = line[i];
+    //             break;
+    //         }
+    //     }
+
+    //     strncpy_s(left, sizeof(left), line, i);
+    //     left[i] = '\0';
+    //     strcpy_s(right, sizeof(right), line + i + 1);
+
+    //     SoNguyenLon a(left);
+    //     SoNguyenLon b(right);
+
+    //     switch (oper)
+    //     {
+    //     case '+':
+    //         /* code */
+    //         cout << a + b;
+    //         break;
+    //     case '-':
+    //         /* code */
+    //         cout << a - b;
+    //         break;
+    //     case '*':
+    //         /* code */
+    //         cout << a * b;
+    //         break;
+    //     case '/':
+    //         /* code */
+    //         break;
+    //     default:
+    //         break;
+    //     }
+    //     cout << endl;
+    // }
+
+    ifstream fin("input.txt");
+    char line[100];
+    while (fin.getline(line, 100))
+    {
+        int a, b, c;
+        char d, f;
+
+        cin >> a >> d >> b >> f >> c;
+    }
     system("pause");
     return 0;
 }

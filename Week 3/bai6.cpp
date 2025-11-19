@@ -105,10 +105,10 @@ ThoiGian operator-(int giay, const ThoiGian &other)
 
 ostream &operator<<(ostream &os, const ThoiGian &other)
 {
-    os << setfill('0') << setw(2) << other._gio << ":" << setfill('0') << setw(2) << other._phut << ":"
-       << setfill('0') << setw(2) << other._giay;
+    // os << setfill('0') << setw(2) << other._gio << ":" << setfill('0') << setw(2) << other._phut << ":"
+    //    << setfill('0') << setw(2) << other._giay;
 
-    return os;
+        return os;
 }
 
 int main()
